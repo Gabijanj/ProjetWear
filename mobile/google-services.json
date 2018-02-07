@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "258335142309",
+    "firebase_url": "https://projectwear-5e107.firebaseio.com",
+    "project_id": "projectwear-5e107",
+    "storage_bucket": "projectwear-5e107.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:258335142309:android:c850d6d46a14945b",
+        "android_client_info": {
+          "package_name": "lp.projetwear"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "258335142309-eealh68vnujs57vm4clgtmbok54uhs4a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1bzivbWhH1hBclcFwFsmYA4DicQV8M28"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
