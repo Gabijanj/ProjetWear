@@ -1,6 +1,7 @@
 package lp.projetwear;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private FirebaseAuth firebaseAuth;
+
     private Button buttonRegister;
     private EditText editTextEmail;
     private EditText editTextPassword;
@@ -27,16 +29,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private ProgressDialog progressDialog;
 
-    public void onComplete(Task<AuthResult> task) {
-
-    }
-
-    // ...
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        firebaseAuth = FirebaseAuth.getInstance();
+
         setContentView(R.layout.activity_main);
+        firebaseAuth = FirebaseAuth.getInstance();
+        if(firebaseAuth.getCurrentUser() != null){
+            finish();
+            startActivity(new Intent(getApplicationContext(),ProfileActivity.class));
+        }
 
         progressDialog = new ProgressDialog(this);
 
@@ -73,7 +75,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         @Override
         public void onComplete(@NonNull Task<AuthResult> task) {
             if (task.isSuccessful()){
-                Toast.makeText(MainActivity.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
+                    finish();
+                    startActivity(new Intent(getApplicationContext(),ProfileActivity.class));
+               // Toast.makeText(MainActivity.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(MainActivity.this, "Could not register, try again", Toast.LENGTH_SHORT).show();
             }
@@ -88,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if (view == textViewSignin) {
-            //signin
+            startActivity(new Intent(this, LoginActivity.class));
         }
     }
 }
