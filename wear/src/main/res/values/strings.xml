@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Projet Wear</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="steps">Steps</string>
+    <string name="reading">Reading</string>
 </resources>
