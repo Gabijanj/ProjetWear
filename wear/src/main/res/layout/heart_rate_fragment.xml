@@ -31,6 +31,18 @@
             android:textColorHint="#eaeaea"
             android:textSize="20sp"
             android:textStyle="bold" />
+        <Button
+            android:id="@+id/buttonmoins"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/moins"
+            android:gravity="left"/>
+        <Button
+            android:id="@+id/buttonplus"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/plus"
+            android:gravity="right"/>
 
     </LinearLayout>
 </android.support.wear.widget.BoxInsetLayout>

@@ -9,7 +9,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.view.View.OnClickListener;
 
 import lp.projetwear.utils.HeartBeatView;
 import lp.projetwear.utils.WearHeartEmulatorService;
@@ -20,12 +22,14 @@ import lp.projetwear.R;
 import static lp.projetwear.utils.WearHeartService.HEART_COUNT_MESSAGE;
 
 
-public class HeartRateFragment extends Fragment {
+public class HeartRateFragment extends Fragment implements View.OnClickListener {
 
     private TextView mTextView;
     private HeartBeatView heartbeat;
     private BroadcastReceiver br;
     private Intent heartServiceIntent;
+    private Button buttonmoins;
+    private Button buttonplus;
 
     public HeartRateFragment() {
         // Required empty public constructor
@@ -36,6 +40,11 @@ public class HeartRateFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.heart_rate_fragment, container, false);
+        buttonmoins = getView().findViewById(R.id.buttonmoins);
+        buttonmoins.setOnClickListener(this);
+        buttonplus = getView().findViewById(R.id.buttonplus);
+        buttonplus.setOnClickListener(this);
+
         heartServiceIntent = new Intent(getActivity(), WearHeartEmulatorService.class);
         br = new BroadcastReceiver() {
             @Override
@@ -65,4 +74,15 @@ public class HeartRateFragment extends Fragment {
     }
 
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.buttonmoins :
+
+                break;
+            case R.id.buttonplus :
+
+                break;
+        }
+    }
 }
