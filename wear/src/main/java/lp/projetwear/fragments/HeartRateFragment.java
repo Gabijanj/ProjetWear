@@ -32,6 +32,7 @@ public class HeartRateFragment extends Fragment implements View.OnClickListener 
     private Intent heartServiceIntent;
     private ImageButton buttonmoins;
     private ImageButton buttonplus;
+    private int addToAvg = 0;
 
     public HeartRateFragment() {
         // Required empty public constructor
@@ -53,7 +54,7 @@ public class HeartRateFragment extends Fragment implements View.OnClickListener 
             public void onReceive(Context context, Intent intent) {
                 int heart = intent.getExtras().getInt(WearHeartService.HEART_COUNT_VALUE);
                 mTextView = (TextView) rootView.findViewById(R.id.tvheartrate);
-                mTextView.setText(Integer.toString(heart));
+                mTextView.setText(Integer.toString(heart+addToAvg));
             }
         };
         heartbeat = (HeartBeatView)rootView.findViewById(R.id.heartbeat);
@@ -80,10 +81,12 @@ public class HeartRateFragment extends Fragment implements View.OnClickListener 
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.buttonmoins :
-                Toast.makeText(getContext(), "Moins", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "-5", Toast.LENGTH_SHORT).show();
+                addToAvg -= 5;
                 break;
             case R.id.buttonplus :
-                Toast.makeText(getContext(), "Plus", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "+5", Toast.LENGTH_SHORT).show();
+                addToAvg += 5;
                 break;
         }
     }
