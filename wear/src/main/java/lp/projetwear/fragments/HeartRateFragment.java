@@ -10,8 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
+import android.widget.Toast;
 
 import lp.projetwear.utils.HeartBeatView;
 import lp.projetwear.utils.WearHeartEmulatorService;
@@ -28,8 +30,8 @@ public class HeartRateFragment extends Fragment implements View.OnClickListener 
     private HeartBeatView heartbeat;
     private BroadcastReceiver br;
     private Intent heartServiceIntent;
-    private Button buttonmoins;
-    private Button buttonplus;
+    private ImageButton buttonmoins;
+    private ImageButton buttonplus;
 
     public HeartRateFragment() {
         // Required empty public constructor
@@ -40,9 +42,9 @@ public class HeartRateFragment extends Fragment implements View.OnClickListener 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.heart_rate_fragment, container, false);
-        buttonmoins = getView().findViewById(R.id.buttonmoins);
+        buttonmoins = rootView.findViewById(R.id.buttonmoins);
         buttonmoins.setOnClickListener(this);
-        buttonplus = getView().findViewById(R.id.buttonplus);
+        buttonplus = rootView.findViewById(R.id.buttonplus);
         buttonplus.setOnClickListener(this);
 
         heartServiceIntent = new Intent(getActivity(), WearHeartEmulatorService.class);
@@ -78,10 +80,10 @@ public class HeartRateFragment extends Fragment implements View.OnClickListener 
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.buttonmoins :
-
+                Toast.makeText(getContext(), "Moins", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.buttonplus :
-
+                Toast.makeText(getContext(), "Plus", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
