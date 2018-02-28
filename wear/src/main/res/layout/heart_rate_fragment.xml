@@ -7,8 +7,8 @@
     tools:context="lp.projetwear.MainActivity"
     tools:deviceIds="wear">
 
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/heartInfos"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
@@ -16,33 +16,51 @@
 
         <lp.projetwear.utils.HeartBeatView
             android:id="@+id/heartbeat"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
             android:layout_marginLeft="25dp"
             android:layout_weight="1" />
+
         <TextView
             android:id="@+id/tvheartrate"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_gravity="center"
             android:layout_weight="1"
             android:gravity="left|center"
             android:hint="@string/reading"
             android:textColorHint="#eaeaea"
-            android:textSize="20sp"
+            android:textSize="20dp"
             android:textStyle="bold" />
-        <Button
-            android:id="@+id/buttonmoins"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/moins"
-            android:gravity="left"/>
-        <Button
-            android:id="@+id/buttonplus"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/plus"
-            android:gravity="right"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_gravity="left|center"
+            android:layout_marginRight="25dp">
+
+            <ImageButton
+                android:id="@+id/buttonplus"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_above="@id/buttonmoins"
+                android:contentDescription="@string/pluss"
+                android:src="@drawable/ic_plus"
+                android:background="@android:color/transparent"/>
+
+            <ImageButton
+                android:id="@+id/buttonmoins"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:contentDescription="@string/minus"
+                android:src="@drawable/ic_minus"
+                android:background="@android:color/transparent"/>
+
+
+        </RelativeLayout>
 
     </LinearLayout>
 </android.support.wear.widget.BoxInsetLayout>

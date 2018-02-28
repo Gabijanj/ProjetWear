@@ -6,4 +6,6 @@
     <string name="reading">Reading</string>
     <string name="moins">-</string>
     <string name="plus">+</string>
+    <string name="minus">moins</string>
+    <string name="pluss">plus</string>
 </resources>
