@@ -24,6 +24,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     private EditText editTextName,editTextAddress;
     private Button buttonSave;
+    private Button buttonSession;
 
 
 
@@ -45,10 +46,12 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
         textViewUserEmail = (TextView) findViewById(R.id.textViewUserEmail);
-        textViewUserEmail.setText("Welcome"+user.getEmail());
+        textViewUserEmail.setText("Welcome "+user.getEmail());
         buttonLogout = (Button) findViewById(R.id.buttonLogout);
         buttonLogout.setOnClickListener(this);
         buttonSave.setOnClickListener(this);
+        buttonSession = (Button)findViewById(R.id.buttonSession);
+        buttonSession.setOnClickListener(this);
     }
     private void saveUserInformation(){
         String name = editTextName.getText().toString().trim();
@@ -59,6 +62,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         FirebaseUser user = firebaseAuth.getCurrentUser();
         databaseReference.child(user.getUid()).setValue(userInformation);
         Toast.makeText(this,"Information saved...",Toast.LENGTH_LONG).show();
+    }
+    private void sessionInformation(){
+        startActivity(new Intent(getApplicationContext(),SessionActivity.class));
+
     }
 
     @Override
@@ -71,6 +78,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         }
         if(view==buttonSave){
             saveUserInformation();
+        }
+        if(view==buttonSession){
+            sessionInformation();
         }
 
     }

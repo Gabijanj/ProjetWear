@@ -46,7 +46,12 @@
             android:layout_height="wrap_content"
             android:text="Save Information"
             />
-
+        <Button
+            android:id="@+id/buttonSession"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Créer une session"
+            />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
